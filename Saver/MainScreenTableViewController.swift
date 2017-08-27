@@ -74,7 +74,7 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        persons = Person.loadFromFile() ?? Person.SamplePerson()
+        persons = Person.loadFromFile() ?? []
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
