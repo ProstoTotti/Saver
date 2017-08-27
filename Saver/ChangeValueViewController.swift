@@ -46,21 +46,17 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
         }
     }
     
+    // animations
     @IBAction func dragOutsideButton(_ sender: UIButton) {
         UIView.animate(withDuration: 0.25) {
             sender.transform = .identity
         }
     }
-    
     @IBAction func TouchUpInsideAnimated(_ sender: UIButton) {
         UIView.animate(withDuration: 0.25) { 
             sender.transform = .identity
         }
     }
-    
-    
-    
-    
     @IBAction func TouchDownAnimated(_ sender: UIButton) {
         UIView.animate(withDuration: 0.25) { 
             sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)

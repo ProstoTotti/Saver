@@ -18,14 +18,8 @@ class MainScreenTableViewCell: UITableViewCell {
     
     @IBOutlet weak var secondHeightConstraint: NSLayoutConstraint!
     
-    @IBAction func callButton(_ sender: UIButton) {
-    }
-    
-    
-    
     func updateMainCell (with person : Person) {
         nameLabel.text = person.firstName + " " + person.lastName
-        
         dateLabel.text = "Created by: \(Person.dateCreatedFormatter.string(from: person.dateCreated))"
         valueLabel.textColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0)
         secondView.backgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0)
@@ -36,8 +30,6 @@ class MainScreenTableViewCell: UITableViewCell {
             return
         }
     }
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
