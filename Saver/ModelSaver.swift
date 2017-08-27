@@ -20,7 +20,7 @@ class Person : NSObject, NSCoding {
     
     static let dateCreatedFormatter : DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .long
         return formatter
     }()
     
