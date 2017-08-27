@@ -16,15 +16,22 @@ class Person : NSObject, NSCoding {
     var financialRelation : Relation.RawValue
     var valueMoney : String
     var phoneNumber : String
+    var dateCreated : Date
+    
+    static let dateCreatedFormatter : DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }()
     
     var message : String {
         return "Hello, you \(financialRelation)ed me \(valueMoney)\(currencyType)"
     }
     
     static func SamplePerson() -> [Person] {
-        return [Person(firstName: "John", lastName: "Snow", currencyType: .dollar, financialRelation: .loan, valueMoney: "50", phoneNumber: "+375291297685"),
-                Person(firstName: "Daenerys", lastName: "Targaryen", currencyType: .ruble, financialRelation: .loan, valueMoney: "15",phoneNumber: "+375291297685"),
-                Person(firstName: "Cersei", lastName: "Lannister", currencyType: .euro, financialRelation: .borrow, valueMoney: "100",phoneNumber: "+375291297685")
+        return [Person(firstName: "John", lastName: "Snow", currencyType: .dollar, financialRelation: .loan, valueMoney: "50", phoneNumber: "+375291297685", dateCreated : Calendar.current.startOfDay(for: Date())),
+                Person(firstName: "Daenerys", lastName: "Targaryen", currencyType: .ruble, financialRelation: .loan, valueMoney: "15",phoneNumber: "+375291297685", dateCreated : Calendar.current.startOfDay(for: Date())),
+                Person(firstName: "Cersei", lastName: "Lannister", currencyType: .euro, financialRelation: .borrow, valueMoney: "100",phoneNumber: "+375291297685",dateCreated : Calendar.current.startOfDay(for: Date()))
         ]
     }
     
@@ -53,13 +60,14 @@ class Person : NSObject, NSCoding {
     }
     
     //membervise init
-    init(firstName : String, lastName : String, currencyType : Currency, financialRelation : Relation, valueMoney : String, phoneNumber : String) {
+    init(firstName : String, lastName : String, currencyType : Currency, financialRelation : Relation, valueMoney : String, phoneNumber : String, dateCreated : Date) {
         self.firstName = firstName
         self.lastName = lastName
         self.currencyType = currencyType.rawValue
         self.financialRelation = financialRelation.rawValue
         self.valueMoney = valueMoney
         self.phoneNumber = phoneNumber
+        self.dateCreated = dateCreated
     }
     //create struct for the init? and encode
     struct PropertyKey {
@@ -69,6 +77,7 @@ class Person : NSObject, NSCoding {
         static var financialRelation = "financialRelation"
         static var valueMoney = "valueMoney"
         static var phoneNumber = "phoneNumber"
+        static var dateCreated = "dateCreated"
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -77,9 +86,10 @@ class Person : NSObject, NSCoding {
         let currencyType = aDecoder.decodeObject(forKey : PropertyKey.currencyType) as? Currency.RawValue,
         let financialRelation = aDecoder.decodeObject(forKey : PropertyKey.financialRelation) as? Relation.RawValue,
         let valueMoney = aDecoder.decodeObject(forKey: PropertyKey.valueMoney) as? String,
-        let phoneNumber = aDecoder.decodeObject(forKey: PropertyKey.phoneNumber) as? String else {return nil}
+        let phoneNumber = aDecoder.decodeObject(forKey: PropertyKey.phoneNumber) as? String,
+        let dateCreated = aDecoder.decodeObject(forKey: PropertyKey.dateCreated) as? Date else {return nil}
         
-        self.init(firstName : firstName, lastName : lastName, currencyType : Person.Currency(rawValue: currencyType)!, financialRelation : Person.Relation(rawValue: financialRelation)!, valueMoney : valueMoney, phoneNumber : phoneNumber)
+        self.init(firstName : firstName, lastName : lastName, currencyType : Person.Currency(rawValue: currencyType)!, financialRelation : Person.Relation(rawValue: financialRelation)!, valueMoney : valueMoney, phoneNumber : phoneNumber, dateCreated : dateCreated)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -89,6 +99,7 @@ class Person : NSObject, NSCoding {
         aCoder.encode(financialRelation, forKey: PropertyKey.financialRelation)
         aCoder.encode(valueMoney, forKey: PropertyKey.valueMoney)
         aCoder.encode(phoneNumber, forKey: PropertyKey.phoneNumber)
+        aCoder.encode(dateCreated, forKey: PropertyKey.dateCreated)
     }
     
 }

@@ -61,7 +61,7 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
         else {return nil}
     }
     var person : Person? {
-
+        let dateCreated = Calendar.current.startOfDay(for: Date())
         guard let firstName = firstName,
         let lastName = lastName,
         let numberMoneyStr = numberMoney.text,
@@ -69,8 +69,9 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
         let currencyType = currencyType,
         let relationType = relationType else {return nil}
         
-        return Person(firstName: firstName, lastName: lastName, currencyType: currencyType, financialRelation: relationType, valueMoney: numberMoneyStr, phoneNumber: phoneNumber)
+        return Person(firstName: firstName, lastName: lastName, currencyType: currencyType, financialRelation: relationType, valueMoney: numberMoneyStr, phoneNumber: phoneNumber, dateCreated : dateCreated)
     }
+    
     
     
     @IBAction func FetchContacts(_ sender: Any) {
