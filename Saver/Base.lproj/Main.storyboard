@@ -490,6 +490,7 @@
                                 <connections>
                                     <action selector="TouchDownAnimated:" destination="JjD-xc-kT7" eventType="touchDown" id="6Jf-Kp-cnU"/>
                                     <action selector="TouchUpInsideAnimated:" destination="JjD-xc-kT7" eventType="touchUpInside" id="bN9-zp-bjv"/>
+                                    <action selector="dragOutsideButton:" destination="JjD-xc-kT7" eventType="touchDragOutside" id="pKe-ak-uoY"/>
                                     <action selector="minusButton:" destination="JjD-xc-kT7" eventType="touchUpInside" id="WWj-oJ-LSa"/>
                                 </connections>
                             </button>
@@ -547,6 +548,7 @@
                                 <connections>
                                     <action selector="TouchDownAnimated:" destination="JjD-xc-kT7" eventType="touchDown" id="I3b-Nw-Z9m"/>
                                     <action selector="TouchUpInsideAnimated:" destination="JjD-xc-kT7" eventType="touchUpInside" id="qnQ-To-2rd"/>
+                                    <action selector="dragOutsideButton:" destination="JjD-xc-kT7" eventType="touchDragOutside" id="sxF-sp-RBM"/>
                                     <action selector="plusButton:" destination="JjD-xc-kT7" eventType="touchUpInside" id="E6i-lm-uVw"/>
                                 </connections>
                             </button>
