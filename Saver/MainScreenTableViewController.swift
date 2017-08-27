@@ -20,7 +20,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
         tableView.setEditing(!tableViewEditingMode, animated: true)
     }
     
-    
     func prepareTable() {
         if selectedIndex != -1  {
             selectedIndex = -1
@@ -28,7 +27,7 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
 //            tableView.reloadData()
         }
     }
-
+    
     var selectedIndex = -1
     var selectedIndexPath : IndexPath?
     var persons : [Person] = [] {
