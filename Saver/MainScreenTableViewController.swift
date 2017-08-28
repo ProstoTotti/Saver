@@ -30,7 +30,7 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
     
     var selectedIndex = -1
     var selectedIndexPath : IndexPath?
-    var persons : [Person] = [] {
+    var persons : [Person]! {
         didSet {
             Person.saveToFile(persons)
         }
