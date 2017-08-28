@@ -140,11 +140,7 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (selectedIndex == indexPath.row) {
-            return 150
-        } else {
-            return 75
-        }
+         return selectedIndex == indexPath.row ?  150 : 75
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
