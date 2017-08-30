@@ -12,7 +12,7 @@ import MessageUI
 class MainScreenTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
     
     @IBOutlet weak var editButtonOutlet: UIBarButtonItem!
-   // @IBOutlet weak var addPerson: UIBarButtonItem!
+   
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
         prepareTable()
@@ -24,7 +24,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
         if selectedIndex != -1  {
             selectedIndex = -1
             tableView.reloadRows(at:[selectedIndexPath!], with: .automatic)
-//            tableView.reloadData()
         }
     }
     
@@ -60,26 +59,11 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
             }
             tableView.isEditing = false
         }
-        
-        
-//        guard  segue.identifier == "personSave", let sourceTVC = segue.source as? EditTableViewController else {return}
-//        if let person = sourceTVC.person {
-//            let newIndexPath = IndexPath(row: persons.count, section: 0)
-//            persons.append(person)
-//            tableView.insertRows(at: [newIndexPath], with: .automatic)
-//        }
-//        "SaveValue"
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         persons = Person.loadFromFile() ?? []
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-       // navigationItem.leftBarButtonItem = editButtonItem
     }
     
     @IBAction func callButton(_ sender: UIButton) {
@@ -125,8 +109,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
     
     @IBAction func editButtonCell(_ sender: UIButton) {
         prepareTable()
-//        selectedIndex = -1
-//        tableView.reloadRows(at: [selectedIndexPath!], with: .automatic)
     }
     
     
@@ -135,7 +117,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return persons.count
     }
 
@@ -169,26 +150,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
         tableView.reloadRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    
-//   //  Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            // Delete the row from the data source
-//            persons.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
-//    }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.000001
@@ -200,14 +161,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
         tableView.reloadData()
     }
  
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation

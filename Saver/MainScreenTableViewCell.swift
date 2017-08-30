@@ -16,8 +16,6 @@ class MainScreenTableViewCell: UITableViewCell {
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var secondHeightConstraint: NSLayoutConstraint!
-    
     func updateMainCell (with person : Person) {
         nameLabel.text = person.firstName + " " + person.lastName
         dateLabel.text = "Created by: \(Person.dateCreatedFormatter.string(from: person.dateCreated))"
@@ -33,17 +31,9 @@ class MainScreenTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-//    var showsDetails = false  {
-//        didSet {
-//            secondHeightConstraint.priority = showsDetails ? 250 : 999
-//        }
-//    }
-
 }

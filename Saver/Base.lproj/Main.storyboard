@@ -148,7 +148,6 @@
                                     <outlet property="dateLabel" destination="Krw-8r-Gmc" id="GSa-CD-b1N"/>
                                     <outlet property="firstView" destination="JuS-Wu-BCg" id="Itw-LM-FXF"/>
                                     <outlet property="nameLabel" destination="ukm-Gh-hsh" id="5WC-49-mIC"/>
-                                    <outlet property="secondHeightConstraint" destination="uXo-5r-Af8" id="MJk-J9-0PL"/>
                                     <outlet property="secondView" destination="gvM-si-7E0" id="8jz-fE-jR3"/>
                                     <outlet property="valueLabel" destination="j6Y-VU-i5U" id="RRf-F0-UuX"/>
                                 </connections>
