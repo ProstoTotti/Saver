@@ -88,8 +88,6 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
         performSegue(withIdentifier: "SaveValue", sender: sender)
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let person = person {
@@ -99,8 +97,5 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
             valueLabel.text = "\(person.valueMoney)\(person.currencyType)"
         }
         pickerView.selectRow(3, inComponent: 0, animated: false)
-        // Do any additional setup after loading the view.
     }
-
-
 }

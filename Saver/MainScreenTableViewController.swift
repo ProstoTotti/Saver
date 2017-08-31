@@ -128,8 +128,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as! MainScreenTableViewCell
         let person = persons[indexPath.row]
         cell.updateMainCell(with: person)
-        // Configure the cell...
-
         return cell
     }
     
@@ -154,7 +152,6 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.000001
     }
-    // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let movedPerson = persons.remove(at: fromIndexPath.row)
         persons.insert(movedPerson, at: to.row)
@@ -173,5 +170,4 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
                 changeValueVC.person = person
         }
     }
-
 }

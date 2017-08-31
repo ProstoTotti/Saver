@@ -27,14 +27,7 @@ class Person : NSObject, NSCoding {
     var message : String {
         return "Hello, you \(financialRelation)ed me \(valueMoney)\(currencyType)"
     }
-    
-//    static func SamplePerson() -> [Person] {
-//        return [Person(firstName: "John", lastName: "Snow", currencyType: .dollar, financialRelation: .loan, valueMoney: "50", phoneNumber: "+375291297685", dateCreated : Calendar.current.startOfDay(for: Date())),
-//                Person(firstName: "Daenerys", lastName: "Targaryen", currencyType: .ruble, financialRelation: .loan, valueMoney: "15",phoneNumber: "+375291297685", dateCreated : Calendar.current.startOfDay(for: Date())),
-//                Person(firstName: "Cersei", lastName: "Lannister", currencyType: .euro, financialRelation: .borrow, valueMoney: "100",phoneNumber: "+375291297685",dateCreated : Calendar.current.startOfDay(for: Date()))
-//        ]
-//    }
-    
+
     enum Currency : String {
         case dollar = "$"
         case euro = "€"
