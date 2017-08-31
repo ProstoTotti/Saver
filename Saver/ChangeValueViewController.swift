@@ -16,13 +16,13 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var relationLabel: UILabel!
     
-    var person : Person?
+    var person : Person!
     var defaultStep = 20
-    var valueMoneyNew : String?
+    var valueMoneyNew : String!
     var steps : [String] = ["5", "10","15", "20", "25", "50", "100"]
     
     var currentValue : Int {
-        get { return Int(valueMoneyNew!)!}
+        get { return Int(valueMoneyNew)!}
         set { valueMoneyNew = String(newValue)}
     }
     
@@ -31,18 +31,18 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
         if currentValue != 0 {
             guard currentValue >= defaultStep else {
                 currentValue = 0
-                valueLabel.text = valueMoneyNew! + (person?.currencyType)!
+                valueLabel.text = valueMoneyNew + person.currencyType
                 return
             }
                 currentValue -= defaultStep
-                valueLabel.text = valueMoneyNew! + (person?.currencyType)!
+                valueLabel.text = valueMoneyNew + person.currencyType
             }
         }
     
     @IBAction func plusButton(_ sender: UIButton) {
         if currentValue < 10000 {
             currentValue += defaultStep
-            valueLabel.text = valueMoneyNew! + (person?.currencyType)!
+            valueLabel.text = valueMoneyNew + person.currencyType
         }
     }
     
@@ -69,7 +69,7 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return steps[row] + (person?.currencyType)!
+        return steps[row] + person.currencyType
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -84,7 +84,7 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        person?.valueMoney = valueMoneyNew!
+        person.valueMoney = valueMoneyNew
         performSegue(withIdentifier: "SaveValue", sender: sender)
     }
     
