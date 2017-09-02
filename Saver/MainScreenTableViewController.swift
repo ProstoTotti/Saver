@@ -95,7 +95,7 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
     
     @IBAction func deleteButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete Person", message: "I want delete this person?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: {_ in
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
             self.persons.remove(at: self.selectedIndex)
             self.tableView.deleteRows(at: [self.selectedIndexPath!], with: .fade)
             self.selectedIndex = -1

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -15,6 +16,8 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var relationLabel: UILabel!
+    
+    var saveSoundID : SystemSoundID = 0
     
     var person : Person!
     var defaultStep = 20
@@ -80,10 +83,19 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
         defaultStep = Int(steps[row])!
     }
     
-    
+    func playSaveSound() {
+        if saveSoundID == 0 {
+            let soundURL = Bundle.main.url(forResource: "save", withExtension: "wav")! as CFURL
+            AudioServicesCreateSystemSoundID(soundURL, &saveSoundID)
+        }
+        AudioServicesPlaySystemSound(saveSoundID)
+    }
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) { 
+            self.playSaveSound()
+        }
         person.valueMoney = valueMoneyNew
         performSegue(withIdentifier: "SaveValue", sender: sender)
     }

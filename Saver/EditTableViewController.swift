@@ -9,6 +9,7 @@
 import UIKit
 import Contacts
 import ContactsUI
+import AudioToolbox
 
 class EditTableViewController: UITableViewController, CNContactPickerDelegate {
 
@@ -28,6 +29,8 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
     
     var firstName : String?
     var lastName : String?
+    var saveSoundID : SystemSoundID = 0
+    var errorSoundID : SystemSoundID = 0
     //phoneFix
     var numberCodePhone : String? {
         didSet {
@@ -72,7 +75,22 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
         return Person(firstName: firstName, lastName: lastName, currencyType: currencyType, financialRelation: relationType, valueMoney: numberMoneyStr, phoneNumber: phoneNumber, dateCreated : dateCreated)
     }
     
+    func playSaveSound() {
+        if saveSoundID == 0 {
+            let soundURL = Bundle.main.url(forResource: "save", withExtension: "wav")! as CFURL
+            AudioServicesCreateSystemSoundID(soundURL, &saveSoundID)
+        }
+        AudioServicesPlaySystemSound(saveSoundID)
+    }
     
+    func playErrorSound() {
+        if errorSoundID == 0 {
+            let soundURL = Bundle.main.url(forResource: "error", withExtension: "wav")! as CFURL
+            AudioServicesCreateSystemSoundID(soundURL, &errorSoundID)
+        }
+        AudioServicesPlaySystemSound(errorSoundID)
+        
+    }
     
     @IBAction func FetchContacts(_ sender: Any) {
         let entityType = CNEntityType.contacts
@@ -132,10 +150,16 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if person == nil || Int((person?.valueMoney)!) == nil {
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                self.playErrorSound()
+            })
             let alert = UIAlertController(title: "Fields are not filled", message: "Please, fill empty fields or correct value money", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self.playSaveSound()
+            })
             performSegue(withIdentifier: "personSave", sender: self)
         }
        
