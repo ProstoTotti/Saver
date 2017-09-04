@@ -15,7 +15,7 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        persons = PersonLog.fetchPersonLogList(in: context)
+        persons = PersonLog.fetchPersonLogList(in: context).reversed()
     }
 
 

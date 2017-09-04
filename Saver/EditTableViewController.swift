@@ -163,8 +163,7 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
        
     }
     
-    
-    @IBAction func amountMoney(_ sender: UIButton) {
+    func writeAmountMoney() {
         let alert = UIAlertController(title: "Value Money", message: "Enter the value", preferredStyle: .alert)
         alert.addTextField(configurationHandler: { moneyTextField in
             moneyTextField.placeholder = "Enter value"
@@ -186,6 +185,10 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func amountMoney(_ sender: UIButton) {
+        writeAmountMoney()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -193,6 +196,7 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath {
+        case [1,0]: writeAmountMoney()
         case [2,0]:
             loanCell.accessoryType = .checkmark
             borrowCell.accessoryType = .none
