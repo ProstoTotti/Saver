@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import CoreData
 
 class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -93,6 +94,12 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        if (Int(person.valueMoney)! - Int(valueMoneyNew)!) != 0 {
+        let context = AppDelegate.viewContext
+        PersonLog.createPersonLog(person: person, in: context, newValue: valueMoneyNew)
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now()) { 
             self.playSaveSound()
         }

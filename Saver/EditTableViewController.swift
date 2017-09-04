@@ -4,8 +4,6 @@
 //
 //  Created by Игорь Лисицкий on 06.08.17.
 //  Copyright © 2017 Igor Lisitzki. All rights reserved.
-//
-// you loaned from John Wick:
 import UIKit
 import Contacts
 import ContactsUI

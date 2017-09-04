@@ -18,7 +18,7 @@ class MainScreenTableViewCell: UITableViewCell {
     
     func updateMainCell (with person : Person) {
         nameLabel.text = person.firstName + " " + person.lastName
-        dateLabel.text = "Created by: \(Person.dateCreatedFormatter.string(from: person.dateCreated))"
+        dateLabel.text = "Created by: \(Person.dateFormatter.string(from: person.dateCreated))"
         valueLabel.textColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0)
         secondView.backgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0)
         valueLabel.text = person.valueMoney + person.currencyType

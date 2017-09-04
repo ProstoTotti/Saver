@@ -18,7 +18,7 @@ class Person : NSObject, NSCoding {
     var phoneNumber : String
     var dateCreated : Date
     
-    static let dateCreatedFormatter : DateFormatter = {
+    static let dateFormatter : DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter

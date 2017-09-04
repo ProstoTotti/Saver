@@ -7,10 +7,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--iSaver-->
+        <!--Saver-->
         <scene sceneID="6kv-Kx-K6H">
             <objects>
                 <tableViewController id="d1L-ew-PuW" customClass="MainScreenTableViewController" customModule="Saver" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,17 +159,24 @@
                             <outlet property="delegate" destination="d1L-ew-PuW" id="cg1-kz-lOt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iSaver" id="LgR-fl-wp5">
+                    <navigationItem key="navigationItem" title="Saver" id="LgR-fl-wp5">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="fzg-VO-Tv9">
                             <connections>
                                 <action selector="editButton:" destination="d1L-ew-PuW" id="8g3-oF-qxj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yea-Fg-UEd">
-                            <connections>
-                                <segue destination="BUI-vm-oHm" kind="presentation" id="8Cz-h5-37D"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Yea-Fg-UEd">
+                                <connections>
+                                    <segue destination="BUI-vm-oHm" kind="presentation" id="8Cz-h5-37D"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="WfF-Ku-KVU">
+                                <connections>
+                                    <segue destination="4Z8-PG-DsJ" kind="presentation" id="YJS-XD-Hla"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="editButtonOutlet" destination="fzg-VO-Tv9" id="NJ3-dz-Ljt"/>
@@ -438,7 +446,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Qs-xZ-Ht8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gk4-fj-1cw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1716" y="376"/>
+            <point key="canvasLocation" x="524" y="1511"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M5h-vS-eO9">
@@ -457,7 +465,100 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHp-rK-17v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="377"/>
+            <point key="canvasLocation" x="524" y="805"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="IVf-ws-vpD">
+            <objects>
+                <tableViewController id="myS-kZ-LOj" customClass="HistoryTableViewController" customModule="Saver" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xGM-a5-WNL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="50" id="jiA-gA-bns" customClass="HistoryTableViewCell" customModule="Saver" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jiA-gA-bns" id="5Xb-FG-5Ju">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-4Z-ELe">
+                                            <rect key="frame" x="340.5" y="19" width="26.5" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oWj-IJ-Gzk">
+                                            <rect key="frame" x="8" y="16.5" width="76" height="17"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eK-ym-uUo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsB-d9-Ij3">
+                                                    <rect key="frame" x="40.5" y="0.0" width="35.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="f2t-4Z-ELe" firstAttribute="centerY" secondItem="5Xb-FG-5Ju" secondAttribute="centerY" id="GlU-A4-c3x"/>
+                                        <constraint firstItem="f2t-4Z-ELe" firstAttribute="trailing" secondItem="5Xb-FG-5Ju" secondAttribute="trailingMargin" id="NcW-eX-ygG"/>
+                                        <constraint firstItem="oWj-IJ-Gzk" firstAttribute="centerY" secondItem="5Xb-FG-5Ju" secondAttribute="centerY" id="S7i-E4-xXP"/>
+                                        <constraint firstItem="oWj-IJ-Gzk" firstAttribute="leading" secondItem="5Xb-FG-5Ju" secondAttribute="leadingMargin" id="a4b-jx-a37"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="f2t-4Z-ELe" id="K2k-pY-Vc3"/>
+                                    <outlet property="fullNameLabel" destination="3eK-ym-uUo" id="qDc-Ah-jWe"/>
+                                    <outlet property="moneyCurrencyLabel" destination="SsB-d9-Ij3" id="Xgl-II-Al6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="myS-kZ-LOj" id="hms-JU-1q0"/>
+                            <outlet property="delegate" destination="myS-kZ-LOj" id="nyW-D6-4Q4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="History" id="0hd-cy-jcJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zPZ-mj-UEk">
+                            <connections>
+                                <segue destination="3UU-YF-Lq8" kind="unwind" unwindAction="unwindToSaver:" id="82z-EF-XiG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="3vh-Qk-E8e">
+                            <connections>
+                                <action selector="clearAllButtonPressed:" destination="myS-kZ-LOj" id="xId-Hl-b2K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQv-cV-hZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3UU-YF-Lq8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-263" y="1511"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ic3-3O-YJX">
+            <objects>
+                <navigationController id="4Z8-PG-DsJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SMw-cW-8ca">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="myS-kZ-LOj" kind="relationship" relationship="rootViewController" id="hHr-GS-7sk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0K-1Z-elR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262" y="805"/>
         </scene>
         <!--Change Value-->
         <scene sceneID="Pz6-Ob-Y4t">
@@ -587,7 +688,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdb-kZ-dgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eMP-P8-3cn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="996" y="-290.10494752623691"/>
+            <point key="canvasLocation" x="879" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f2X-2o-l8P">
