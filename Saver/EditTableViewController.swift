@@ -196,7 +196,6 @@ class EditTableViewController: UITableViewController, CNContactPickerDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath {
-        case [1,0]: writeAmountMoney()
         case [2,0]:
             loanCell.accessoryType = .checkmark
             borrowCell.accessoryType = .none

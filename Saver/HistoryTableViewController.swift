@@ -15,13 +15,13 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        persons = PersonLog.fetchPersonLogList(in: context).reversed()
+        persons = PersonLog.fetchPersonLogList(in: context)
     }
 
 
     @IBAction func clearAllButtonPressed(_ sender: UIBarButtonItem) {
        let alert = UIAlertController(title: "Delete all History", message: "Do you really want to delete your History?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Delete All", style: .destructive, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Clear", style: .destructive, handler: { _ in
             PersonLog.deleteAllRecords()
             self.persons = []
             self.tableView.reloadData()

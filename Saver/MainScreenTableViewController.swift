@@ -42,8 +42,10 @@ class MainScreenTableViewController: UITableViewController, MFMessageComposeView
             case "personSave" :
                 guard let sourceTVC = segue.source as? EditTableViewController else {return}
                 if let person = sourceTVC.person {
-                   let newIndexPath = IndexPath(row: persons.count, section: 0)
-                    persons.append(person)
+                   //let newIndexPath = IndexPath(row: persons.count, section: 0)
+                    let newIndexPath = IndexPath(row: 0, section: 0)
+                    //persons.append(person)
+                    persons.insert(person, at: 0)
                     tableView.insertRows(at: [newIndexPath], with: .automatic)
                     prepareTable()
                 }

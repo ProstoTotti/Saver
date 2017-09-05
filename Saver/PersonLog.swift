@@ -29,8 +29,7 @@ class PersonLog: NSManagedObject {
     class func fetchPersonLogList(in context : NSManagedObjectContext) -> [PersonLog] {
         var log : [PersonLog] = []
         let request : NSFetchRequest<PersonLog> = PersonLog.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "dateChanged", ascending: true)]
-        
+        request.sortDescriptors = [NSSortDescriptor(key: "dateChanged", ascending: false),NSSortDescriptor(key: "lastName", ascending: true)]
             do {
             log = try context.fetch(request)
             } catch {
