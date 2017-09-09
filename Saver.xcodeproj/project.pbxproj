@@ -98,14 +98,14 @@
 				6145896F1F376E88004DE0AC /* EditTableViewController.swift */,
 				618738A91F4095D100C10E07 /* ChangeValueViewController.swift */,
 				614589671F3709AD004DE0AC /* MainScreenTableViewController.swift */,
-				617A0DDA1F5D27CA005C40A4 /* Model.xcdatamodeld */,
-				617A0DDD1F5D2910005C40A4 /* PersonLog.swift */,
 				617A0DD81F5D26C1005C40A4 /* HistoryTableViewController.swift */,
 				617A0DDF1F5D3DB2005C40A4 /* HistoryTableViewCell.swift */,
+				6145896B1F3719C2004DE0AC /* MainScreenTableViewCell.swift */,
+				617A0DDD1F5D2910005C40A4 /* PersonLog.swift */,
+				614589691F370BDE004DE0AC /* ModelSaver.swift */,
+				617A0DDA1F5D27CA005C40A4 /* Model.xcdatamodeld */,
 				6180A69E1F5A8EBC00DA1289 /* save.wav */,
 				6180A6A21F5A936700DA1289 /* error.wav */,
-				6145896B1F3719C2004DE0AC /* MainScreenTableViewCell.swift */,
-				614589691F370BDE004DE0AC /* ModelSaver.swift */,
 				614589621F3708DD004DE0AC /* Supporting Files */,
 			);
 			path = Saver;

@@ -582,10 +582,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="32"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="TouchDownAnimated:" destination="JjD-xc-kT7" eventType="touchDown" id="6Jf-Kp-cnU"/>
@@ -636,14 +635,11 @@
                                     <constraint firstAttribute="width" constant="80" id="YMq-fN-1nV"/>
                                     <constraint firstAttribute="height" constant="80" id="qI8-Pq-U42"/>
                                 </constraints>
-                                <state key="normal" image="bigplus">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="bigplus"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="32"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="TouchDownAnimated:" destination="JjD-xc-kT7" eventType="touchDown" id="I3b-Nw-Z9m"/>
@@ -653,7 +649,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="HNE-mI-BmU" secondAttribute="trailing" id="0PN-f8-bPC"/>
                             <constraint firstItem="HNE-mI-BmU" firstAttribute="centerY" secondItem="mzA-wb-LZZ" secondAttribute="centerY" constant="-60" id="2hJ-IB-gAv"/>
@@ -704,7 +700,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJH-2Q-lp9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-694" y="36"/>
+            <point key="canvasLocation" x="-593" y="36"/>
         </scene>
     </scenes>
     <resources>

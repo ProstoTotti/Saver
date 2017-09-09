@@ -96,13 +96,13 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         
         if (Int(person.valueMoney)! - Int(valueMoneyNew)!) != 0 {
-        let context = AppDelegate.viewContext
-        PersonLog.createPersonLog(person: person, in: context, newValue: valueMoneyNew)
+            let context = AppDelegate.viewContext
+            PersonLog.createPersonLog(person: person, in: context, newValue: valueMoneyNew)
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.playSaveSound()
+            }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now()) { 
-            self.playSaveSound()
-        }
         person.valueMoney = valueMoneyNew
         performSegue(withIdentifier: "SaveValue", sender: sender)
     }
@@ -118,3 +118,35 @@ class ChangeValueViewController: UIViewController,UIPickerViewDelegate, UIPicker
         pickerView.selectRow(3, inComponent: 0, animated: false)
     }
 }
+
+extension UIView {
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            return UIColor(cgColor: layer.borderColor!)
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+}
+
